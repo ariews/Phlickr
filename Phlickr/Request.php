@@ -309,7 +309,8 @@ class Phlickr_Request {
     public function execute($allowCached = false)
     {
         $url = $this->buildUrl();
-        $cache =& $this->getApi()->getCache();
+        $_cache = $this->getApi()->getCache();
+        $cache =& $_cache;
         if ($allowCached && $cache->has($url)) {
             $result = $cache->get($url);
         } else {
